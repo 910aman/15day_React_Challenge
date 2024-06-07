@@ -1,0 +1,10 @@
+.buttonActive:active  {
+    background-color: "#D1BFBF" !important;
+    border: 2px dotted "#9D75EC" !important;
+}
+
+.buttonActive {
+    background-color: "#D1BFBF";
+    border: 2px dotted "#9D75EC";
+
+}
