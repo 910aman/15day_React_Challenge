@@ -3,15 +3,10 @@ import { ChatContext } from '../context/ChatContext';
 import UserChat from '../components/ChatBox/UserChat';
 import { AuthContext } from '../context/AuthContext';
 import PotentialChats from '../components/ChatBox/PotentialChats';
-import { useDataFetchUser } from '../hooks/useDataFetchUser';
-import avatarImg from '../assets/avatar.svg';
-
 
 const Chat = () => {
   const { user } = useContext(AuthContext);
   const { usersChat, isChatLoading, } = useContext(ChatContext);
-
-
 
   return (
     <div className='mt-4'>

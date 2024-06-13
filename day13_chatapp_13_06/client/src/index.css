@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    font-family: "Ubuntu",sans-serif;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar{
+    
+    width: 5px;
+}
+::-webkit-slider-thumb {
+    border-radius: 30px;
+    transition: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: rgb(104, 26, 26);
+}

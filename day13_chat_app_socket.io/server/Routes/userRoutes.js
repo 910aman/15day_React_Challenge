@@ -4,7 +4,7 @@ const { registerUser, loginUser, findUser, getUser } = require("../Controller/us
 
 router.post('/register',registerUser)
 router.post('/login',loginUser)
-router.get('/find:userId',findUser)
+router.get('/find/:userId',findUser)
 router.get('/',getUser)
 
 module.exports = router;
