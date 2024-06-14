@@ -1,51 +1,10 @@
-
-import { useEffect, useState } from 'react';
-import AddUser from './components/AddUser';
-
+import React from 'react'
 import { MdSend } from "react-icons/md";
-import { io } from 'socket.io-client'
 
-function App() {
-  const [userName, setUserName] = useState("")
-  const [chatActive, setChatActive] = useState(false)
-
-  //Chat Page
-  const socket = io("http://localhost:5000");
-  const [userMessage, setUserMessage] = useState("")
-  const [allMessages, setAllMessages] = useState([])
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    const message = {
-      message: userMessage,
-      user: userName,
-      time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
-    };
-    if (!userMessage == "") {
-      socket.emit("send-message", message);
-    } else {
-      alert("Message cannot be empty")
-    }
-
-    setUserMessage("");
-
-    // !userMessage == "" ? socket.emit("send-message", message) : alert("Message cannot be empty")
-  }
-
-
-  useEffect(() => {
-    socket.on("received-message", (message) => {
-      setAllMessages([...allMessages, message])
-    })
-  }, [allMessages, socket])
-
-
-  return (
-    <>
-      <div className="w-screen  h-screen bg-gray-100 container mx-auto">
-        {chatActive ? <div>
-          {/* <ChatPage userName={userName} /> */}
-          <div className='flex flex-col h-screen justify-center items-center'>
+const ChatPage = ({userName,allMessages,handleSubmit,setUserMessage,userMessage}) => {
+  
+    return (
+        <div className='flex flex-col h-screen justify-center items-center'>
             <section className=' rounded-md w-full px-4 md:px-0 md:w-[40vw] mx-auto'>
               <div>
                 <h1 className='text-center font-bold text-xl'>WELCOME TO GROUP CHAT</h1>
@@ -77,15 +36,7 @@ function App() {
               </div>
             </section>
           </div>
-        </div> :
-          <div><AddUser setChatActive={setChatActive} setUsername={setUserName} userName={userName} /></div>}
-
-      </div>
-    </>
-  )
+    )
 }
 
-export default App
-
-
-
+export default ChatPage

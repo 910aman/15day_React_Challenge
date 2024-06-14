@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "day15_basic_quiz_app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,11 +10,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0",
+    "axios": "^1.7.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "socket.io": "^4.7.5",
-    "socket.io-client": "^4.7.5"
+    "sass": "^1.77.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
