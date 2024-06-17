@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { resultInitalState } from '../data/QuizData';
 import AnswerTimer from '../components/answerTimer/AnswerTimer';
+import QuizComponent from '../components/QuizComponent';
 
 const QuizPage = ({ quizData }) => {
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -54,7 +55,6 @@ const QuizPage = ({ quizData }) => {
         });
     }
 
-
     const onTryAgain = () => {
         setResult(resultInitalState);
         setShowResult(false);
@@ -79,10 +79,9 @@ const QuizPage = ({ quizData }) => {
 
     const handleSave = () => {
         const score = {
-            name,
+            name:resultName,
             score: result.score,
         };
-      
 
         const newHighScores = [...highScore, score].sort((a, b) => b.score - a.score);
         setHighScore(newHighScores)
@@ -92,8 +91,10 @@ const QuizPage = ({ quizData }) => {
 
     const handleTryAgain = () => {
         setShowScore(false);
-        setHighScore([]);
         onTryAgain();
+        setInputAnswer("")
+        setResultName("")
+        
     }
 
     useEffect(() => {
@@ -119,9 +120,8 @@ const QuizPage = ({ quizData }) => {
     }
 
     return (
-        <div className=' max-w-3xl px-2 w-full shadow-3xl cursor-pointer border-2 text-blue-700 border-gray-300 flex flex-col gap-5 justify-center '>
+        <div className=' max-w-3xl px-2 w-full shadow-3xl cursor-pointer border-2 bg-gradient-to-r from-[#f86ca7] bg-[#a7bdea] text-blue-700 border-gray-300 flex flex-col gap-5 items-center '>
             {!showResult ? (
-
                 <div className='h-[400px] flex flex-col gap-4 py-1'>
                     {showAnswerTimer && (<AnswerTimer duration={10} onTimeUp={onHandleTimerUp} />)}
                     <div className='flex !justify-end w-full'>
@@ -148,53 +148,12 @@ const QuizPage = ({ quizData }) => {
                 </div>
             ) :
                 (
-                    <section className='h-[450px] text-center max-w-3xl px-2 w-full shadow-3xl cursor-pointer py-3 text-blue-700 flex flex-col gap-5 items-center '>
-                        <h3 className='font-bold text-2xl'>
-                            Result
-                        </h3>
-                        <p className='font-bold text-lg'>
-                            Total Questions: <span className='text-xl'>{quizData.length}</span>
-                        </p>
-                        <p className='font-bold text-lg'>
-                            Total Score: <span className='text-xl'>{result.score}</span>
-                        </p>
-                        <p className='font-bold text-lg'>
-                            Correct Answers: <span className='text-xl'>{result.correctAnswers}</span>
-                        </p>
-                        <p className='font-bold text-lg'>
-                            Wrong Answers: <span className='text-xl'>{result.wrongAnswers}</span>
-                        </p>
-                        <button className='px-4 py-2 text-white bg-gradient-to-tl from-pink-400 to-slate-400 hover:border-2 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none font-bold text-xl ' onClick={onTryAgain}>Try again</button>
-
-                        {!showScore ? <div>
-                            <h3 className='text-xl font-semibold mb-2'>Enter your name below <br /> to save your score</h3>
-
-                            <div>
-                                <input type='text' placeholder='Enter your Name' className='w-60 px-4 py-2 rounded-l-lg' value={resultName} onChange={(e) => setResultName(e.target.value)} />
-                                <button className='px-4 py-2.5 text-white bg-black' onClick={handleSave}>Submit</button>
-                            </div>
-                        </div> :
-                            <div>
-                                <table className='flex gap-1 border-2 flex-col'>
-                                    <thead className=''>
-                                        <th>Ranking</th>
-                                        <th>Name</th>
-                                        <th>Results</th>
-                                    </thead>
-                                    <tbody >
-                                        {highScore.map((score, i) => (
-                                            <tr className='flex gap-4'>
-                                                <td>{i + 1}</td>
-                                                <td>{resultName}</td>
-                                                <td>{score.score}</td>
-                                            </tr>
-                                        ))}
-                                    </tbody>
-                                </table>
-                            </div>}
+                    <section className='h-fit text-center max-w-3xl px-2 w-full shadow-3xl cursor-pointer py-3 text-blue-700 flex flex-col gap-5 items-center '>
+                       <QuizComponent quizData={quizData} result={result} handleTryAgain={handleTryAgain} showScore={showScore} resultName={resultName} setResultName={setResultName} handleSave={handleSave} highScore={highScore} />
                     </section>
-                )}
-        </div>
+                )
+            }
+        </div >
 
     )
 }
