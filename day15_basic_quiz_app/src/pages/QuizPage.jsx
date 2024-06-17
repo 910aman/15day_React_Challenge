@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { resultInitalState } from '../data/QuizData';
+import { resultInitalState } from '../data/CategoryData';
 import AnswerTimer from '../components/answerTimer/AnswerTimer';
 import QuizComponent from '../components/QuizComponent';
 
@@ -16,10 +16,10 @@ const QuizPage = ({ quizData }) => {
     const [showScore, setShowScore] = useState(false)
     const [resultName, setResultName] = useState();
 
-    const { choices, question, correctAnswer, type } = quizData[currentQuestion];
+    const { incorrect_answers, category, question, correct_answer, type } = quizData[currentQuestion];
     const onAnswerClick = (answer, index) => {
         setAnswerIdx(index);
-        if (answer === correctAnswer) {
+        if (answer === correct_answer) {
             setAnswer(true)
         }
         else {
@@ -36,11 +36,11 @@ const QuizPage = ({ quizData }) => {
             {
                 ...prev,
                 score: prev.score + 5,
-                correctAnswers: prev.correctAnswers + 1
+                correct_answer: prev.correct_answer + 1
             } :
             {
                 ...prev,
-                wrongAnswers: prev.wrongAnswers + 1
+                incorrect_answers: prev.incorrect_answers + 1
             })
         if (currentQuestion !== quizData.length - 1) {
             setCurrentQuestion((prev) => prev + 1);
@@ -68,7 +68,7 @@ const QuizPage = ({ quizData }) => {
     const handleInputAns = (e) => {
         // e.preventDefault();
         setInputAnswer(e.target.value)
-        if (e.target.value === correctAnswer) {
+        if (e.target.value === correct_answer) {
             setAnswer(true)
         }
         else {
@@ -79,7 +79,7 @@ const QuizPage = ({ quizData }) => {
 
     const handleSave = () => {
         const score = {
-            name:resultName,
+            name: resultName,
             score: result.score,
         };
 
@@ -94,7 +94,7 @@ const QuizPage = ({ quizData }) => {
         onTryAgain();
         setInputAnswer("")
         setResultName("")
-        
+
     }
 
     useEffect(() => {
@@ -110,7 +110,7 @@ const QuizPage = ({ quizData }) => {
         }
         return (
             <ul className='grid grid-cols-2 justify-center gap-x-20 gap-y-3'>
-                {choices?.map((choice, index) => (
+                {incorrect_answers?.map((choice, index) => (
                     <div key={index} onClick={() => onAnswerClick(choice, index)} className={`flex text-2xl whitespace-nowrap px-6 py-5 justify-center rounded-lg ${answerIdx === index ? " bg-gray-700 text-white " : 'bg-gray-100'}`}>
                         {choice}
                     </div>
@@ -120,9 +120,9 @@ const QuizPage = ({ quizData }) => {
     }
 
     return (
-        <div className=' max-w-3xl px-2 w-full shadow-3xl cursor-pointer border-2 bg-gradient-to-r from-[#f86ca7] bg-[#a7bdea] text-blue-700 border-gray-300 flex flex-col gap-5 items-center '>
+        <div className=' max-w-3xl px-2 mt-20 w-full shadow-3xl cursor-pointer border-2 bg-gradient-to-r from-[#f86ca7] bg-[#a7bdea] text-blue-700 border-gray-300 flex flex-col gap-5 items-center '>
             {!showResult ? (
-                <div className='h-[400px] flex flex-col gap-4 py-1'>
+                <div className='h-fit px-5 flex flex-col gap-4 py-10'>
                     {showAnswerTimer && (<AnswerTimer duration={10} onTimeUp={onHandleTimerUp} />)}
                     <div className='flex !justify-end w-full'>
                         <span className='text-3xl font-bold text-gray-800'>
@@ -149,7 +149,7 @@ const QuizPage = ({ quizData }) => {
             ) :
                 (
                     <section className='h-fit text-center max-w-3xl px-2 w-full shadow-3xl cursor-pointer py-3 text-blue-700 flex flex-col gap-5 items-center '>
-                       <QuizComponent quizData={quizData} result={result} handleTryAgain={handleTryAgain} showScore={showScore} resultName={resultName} setResultName={setResultName} handleSave={handleSave} highScore={highScore} />
+                        <QuizComponent quizData={quizData} result={result} handleTryAgain={handleTryAgain} showScore={showScore} resultName={resultName} setResultName={setResultName} handleSave={handleSave} highScore={highScore} />
                     </section>
                 )
             }
@@ -158,4 +158,3 @@ const QuizPage = ({ quizData }) => {
     )
 }
 export default QuizPage
-
