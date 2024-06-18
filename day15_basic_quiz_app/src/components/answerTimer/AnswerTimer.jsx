@@ -1,36 +1,39 @@
 import React, { useEffect, useRef, useState } from 'react'
+import Timer from '../timer/Timer';
 
-const AnswerTimer = ({ duration,onTimeUp }) => {
+const AnswerTimer = ({ onTimeUp }) => {
 
-    const [counter, setCounter] = useState(0);
-    const [progressLoad, setProgressLoad] = useState(0);
+    const duration = 0;
+    const [counter, setCounter] = useState(59);
+    
     const intervalRef = useRef();
-    useEffect(() => {
-        intervalRef.current = setInterval(() => {
-            setCounter((curr) => curr + 1)
-        }, 1000)
+    const [minutes,] = useState(0);
 
-        return () => clearInterval(intervalRef.current);
-
-    }, [])
 
     useEffect(() => {
-        setProgressLoad(100 * (counter / duration))
+        var timer = setTimeout(() => setCounter(counter - 1), 1000);
+        return () => clearInterval(timer);
+    }, [counter]);
+
+    useEffect(() => {
 
         if (counter === duration) {
             clearInterval(intervalRef.current);
 
             setTimeout(() => {
                 onTimeUp();
-            },1000)
+            }, 1000)
         }
     }, [counter])
 
-    return (
-        <div className='relative mt-0 ml-0 w-full border border-b-gray-500'>
-            <div className='absolute h-0.5 ease-linear duration-[1100ms] w-0 bg-red-500' style={{width: `${progressLoad}%`, backgroundColor: `${progressLoad < 35 ? "lightgreen" : progressLoad < 70 ? "orange" : "red"}`}}>
 
-            </div>
+
+    return (
+        <div className='relative mt-0 ml-0'>
+            <p className="text-3xl font-medium bg-gray-50 px-4 py-2 rounded-lg" >Time Left&nbsp;
+                <span className='bg-blue-400 px-2 rounded-lg tracking-wider'>{minutes < 10 ? "0" + minutes : minutes}:{counter < 10 ? "0" + counter : counter}</span>
+            </p>
+
         </div>
     )
 }
