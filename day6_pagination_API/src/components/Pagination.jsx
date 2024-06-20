@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Pagination } from 'flowbite-react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import Skeleton from 'react-loading-skeleton';
 
-const PaginationComponent = () => {
-    const [data, setData] = useState([]);
+const PaginationComponent = ({ fetchData, axiosData }) => {
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 12;
+    const itemsPerPage = 15;
     const lastIndex = (currentPage) * itemsPerPage;
     const firstIndex = lastIndex - itemsPerPage;
-    const records = data.slice(firstIndex, lastIndex);
-    const totalPages = Math.ceil(data.length / itemsPerPage);
+    const records = axiosData.slice(firstIndex, lastIndex);
+    const totalPages = Math.ceil(axiosData.length / itemsPerPage);
     const numbers = [...Array(totalPages + 1).keys()].slice(1)
 
     const prevDisabled = currentPage === 1;
@@ -20,18 +18,10 @@ const PaginationComponent = () => {
         fetchData();
     }, [currentPage]);
 
-    const fetchData = async () => {
-        try {
-            const response = await axios.get('https://dummyjson.com/products?limit=100');
-            setData(response.data.products);
 
-        } catch (error) {
-            console.error('Error fetching data:', error);
-        }
-    };
 
     const prevPage = () => {
-        if (currentPage !== firstIndex && firstIndex !== 0 ) {
+        if (currentPage !== firstIndex && firstIndex !== 0) {
             setCurrentPage(currentPage - 1)
         }
     }
@@ -47,22 +37,31 @@ const PaginationComponent = () => {
     };
 
     return (
-        <div className='bg-green-100 py-4 px-2 container mx-auto'>
+        <div>
 
-            <div className='grid grid-cols-4 gap-5 '>
-                {records.map((item, index) => (
-                    <ul className='w-full flex flex-col ' key={index}>
+            <div className='grid grid-cols-5 gap-5 '>
+                {records?.map((item, index) => (
+                    <div className='w-full flex flex-col  bg-gray-50 py-2' key={index}>
                         <div className='w-full justify-center flex'>
-                            <img src={item.thumbnail} alt="Thumbnail Image" className='w-52 bg-white' />
+                            <img src={item.thumbnail} alt="Thumbnail Image" className='w-48 bg-white' />
                         </div>
-                        <li key={item.id} className='flex justify-center'>{item.title}</li>
-
-                    </ul>
+                        <div class="mt-4 px-4 flex justify-between">
+                            <div>
+                                <h3 class="text-sm text-gray-700">
+                                    <a>
+                                        <span aria-hidden="true" class="absolute inset-0"></span>
+                                        {item.title.length > 15 ? item.title.substr(0, 22) : item.title}
+                                    </a>
+                                </h3>
+                                <h4 class="mt-1 text-sm text-gray-500">{item.category}</h4>
+                            </div>
+                            <p class="text-sm font-medium text-gray-900">{item.price}</p>
+                        </div>
+                    </div>
                 ))}
             </div>
             <div className='flex flex-row gap-4 justify-center pt-4'>
-
-                <button className={`flex text-xl items-center gap-2  ${prevDisabled ? "opacity-50 cursor-not-allowed" :"text-black font-semibold"}`} onClick={prevPage}>
+                <button className={`flex text-xl items-center gap-2  ${prevDisabled ? "opacity-50 cursor-not-allowed" : "text-black font-semibold"}`} onClick={prevPage}>
                     <FaChevronLeft />
                     Prev
                 </button>
@@ -75,13 +74,12 @@ const PaginationComponent = () => {
                     </button>
                 ))}
 
-                <button className={`flex text-xl items-center gap-2 ${nextDisable ? "opacity-50 cursor-not-allowed" :"text-black font-semibold"}`} onClick={nextPage}>
+                <button className={`flex text-xl items-center gap-2 ${nextDisable ? "opacity-50 cursor-not-allowed" : "text-black font-semibold"}`} onClick={nextPage}>
                     Next
                     <FaChevronRight />
                 </button>
             </div>
         </div >
-
     );
 };
 

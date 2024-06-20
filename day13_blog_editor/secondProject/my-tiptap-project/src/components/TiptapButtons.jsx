@@ -189,8 +189,8 @@ const TiptapButtons = ({ onEditorContentSave }) => {
         </button>
       </div>
       <div className='mt-3'>
-        <p>Select color for editor</p>
         <div className='flex flex-wrap gap-2 bg-gray-200 justify-center '>
+          {/* <p className='flex justify-start '>Select color for editor</p> */}
           <input
             type="color"
             onInput={event => editor.chain().focus().setColor(event.target.value).run()}
@@ -257,7 +257,7 @@ const TiptapButtons = ({ onEditorContentSave }) => {
         </div>
       </div>
       <div className='border-2 border-gray-300 rounded-sm '>
-        <EditorContent editor={editor} className='max-h-96 overflow-y-auto'/>
+        <EditorContent editor={editor} className='max-h-96 overflow-auto ' />
       </div>
       <button className='bg-gray-200 px-4 font-semibold rounded-md text-xl mt-4' onClick={handleEditor}>Save</button>
     </div>

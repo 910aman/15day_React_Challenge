@@ -1,9 +1,9 @@
-import Routers_Page from './components/RoutersPage.jsx'
+import Routers from './components/RoutersPage.jsx'
 
 function App() {
   return (
     <div >
-      <Routers_Page/>
+      <Routers/>
     </div>
   );
 }

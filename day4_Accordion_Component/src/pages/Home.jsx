@@ -37,11 +37,11 @@ const Home = () => {
     }
 
     return (
-        <div className="container mx-auto flex w-full h-fit mt-10 self-center place-content-center ">
-            <div className="min-w-full max-w-full space-y-5 p-4 shadow-xl border rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white">
+        <div className="container mx-auto flex w-full h-screen self-center place-content-center ">
+            <div className="min-w-full max-w-full space-y-5 p-4 shadow-xl border rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 text-white flex items-center">
                 <div className="my-3 col-span-8">
                     <div className="text-black">
-                        <div className="flex flex-1 flex-col min-h-4 ">
+                        <div className="flex flex-1 flex-col min-h-4">
                             <h4 className=" mb-4 text-3xl text-red-700 text-center mt-3">React Accordion</h4>
                             <div className="flex flex-col justify-between">
                             {faqs.map((faqValue, index) => (

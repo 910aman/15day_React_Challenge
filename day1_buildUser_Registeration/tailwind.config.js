@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'kaushanFont': 'Kaushan Script',
+        'libreBaskerville': "Libre Baskerville",
+        
       }
     },
   },
