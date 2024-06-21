@@ -47,15 +47,12 @@ const Login = () => {
 
     return (
         <div>
-            <main className="w-full h-screen flex self-center place-content-center place-items-center flex-row bg-gray-100">
-
-                {userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
-
-
-                <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl bg-zinc-100">
+            {userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
+            <main className="w-full h-screen flex self-center justify-center items-center flex-row  bg-gradient-to-t from-[#80DEEA] to-[#4c26d4] ">
+                <div className="w-96 space-y-5 p-4 shadow-xl border rounded-xl  bg-transparent mx-2 text-white">
                     <div className="text-center">
                         <div className="mt-2">
-                            <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Welcome </h3>
+                            <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">Login </h3>
                         </div>
                     </div>
                     <form
@@ -63,7 +60,7 @@ const Login = () => {
                         className="space-y-5"
                     >
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm tracking-wider font-bold">
                                 Email
                             </label>
                             <input
@@ -77,7 +74,7 @@ const Login = () => {
 
 
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm tracking-wider  font-bold">
                                 Password
                             </label>
                             <input
@@ -89,7 +86,7 @@ const Login = () => {
                             />
                         </div>
 
-                        <Link className='text-blue-500 mt-0 text-base hover:underline focus:underline focus:text-blue-600' to={"/forget-password"}>
+                        <Link className='text-blue-100 tracking-wide mt-0 text-base hover:underline focus:underline focus:text-blue-800' to={"/forget-password"}>
                             <p>Forgot Password?</p>
                         </Link>
                         {errorMessage && (
@@ -111,7 +108,7 @@ const Login = () => {
                     <button
                         disabled={isSigningIn}
                         onClick={(e) => { onGoogleSignIn(e) }}
-                        className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium  ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-100 transition duration-300 active:bg-gray-100'}`}>
+                        className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium  ${isSigningIn ? 'cursor-not-allowed' : 'hover:bg-gray-100  transition duration-300 hover:text-gray-800'}`}>
                         <svg className="w-5 h-5" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g clipPath="url(#clip0_17_40)">
                                 <path d="M47.532 24.5528C47.532 22.9214 47.3997 21.2811 47.1175 19.6761H24.48V28.9181H37.4434C36.9055 31.8988 35.177 34.5356 32.6461 36.2111V42.2078H40.3801C44.9217 38.0278 47.532 31.8547 47.532 24.5528Z" fill="#4285F4" />

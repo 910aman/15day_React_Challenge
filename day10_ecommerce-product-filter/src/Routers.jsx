@@ -17,15 +17,16 @@ const RoutersPage = () => {
     setQuery(event.target.value);
   }
 
-  const filteredItems = products.filter((product) => product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1)
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setSelectedQuery(event.target.value);
   }
 
-  const handleButtons = event => {
+  const handleButtons = (event) => {
     setSelectedQuery(event.target.value)
   }
+
+  const filteredItems = products.filter((product) => product.title.toLocaleLowerCase().indexOf(query.toLocaleLowerCase()) !== -1)
 
   function filterData(products, selected, query) {
     let filteredProducts = products;
@@ -63,7 +64,7 @@ const RoutersPage = () => {
       <div className='w-full flex-1'>
         <Navigation query={query} handleInputChange={handleInputChange} />
         <Recommended handleButtons={handleButtons} />
-        <div className='overflow-y-auto h-[80vh]'>
+        <div className='overflow-y-auto h-[78vh]'>
           <Products results={results} />
         </div>
       </div >

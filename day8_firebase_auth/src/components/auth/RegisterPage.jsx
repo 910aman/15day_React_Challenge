@@ -30,11 +30,11 @@ const Register = () => {
         <>
             {userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
 
-            <main className="w-full h-screen flex self-center place-content-center place-items-center bg-gray-100">
-                <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl bg-slate-100">
+            <main className="w-full h-screen flex self-center justify-center items-center flex-row  bg-gradient-to-t from-[#80DEEA] to-[#4c26d4] ">
+                <div className="w-96 space-y-5 p-4 shadow-xl border rounded-xl bg-transparent mx-2 text-white">
                     <div className="text-center mb-6">
                         <div className="mt-2">
-                            <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">Create a New Account</h3>
+                            <h3 className="text-gray-800 text-xl font-bold sm:text-2xl">Create a New Account</h3>
                         </div>
 
                     </div>
@@ -43,7 +43,7 @@ const Register = () => {
                         className="space-y-4"
                     >
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm tracking-wider font-bold">
                                 Email
                             </label>
                             <input
@@ -56,7 +56,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm tracking-wider  font-bold">
                                 Password
                             </label>
                             <input
@@ -70,7 +70,7 @@ const Register = () => {
                         </div>
 
                         <div>
-                            <label className="text-sm text-gray-600 font-bold">
+                            <label className="text-sm tracking-wider font-bold">
                                 Confirm Password
                             </label>
                             <input

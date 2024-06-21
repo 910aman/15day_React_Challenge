@@ -5,12 +5,19 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+     fontFamily: {
+      'myFonts': 'Oleo Script'
+    },
     extend: {
       backgroundImage: {
-        'secondImage': "url('./assets/secondImage.jpg')",
-        'firstImage': "url('./assets/firstImage.jpg')",
-        'thirdImage': "url('./assets/thirdImage.jpg')",
+        'firstImage': "url('./components/assets/firstImage.jpg')",
+        'secondImage': "url('./components/assets/secondImage.jpg')",
+        'thirdImage': "url('./components/assets/thirdImage.jpg')",
+        'forthImage': "url('./components/assets/forthImage.jpg')",
+        'fifthImage': "url('./components/assets/fifthImage.jfif')",
+
       }
+
     },
   },
   plugins: [],

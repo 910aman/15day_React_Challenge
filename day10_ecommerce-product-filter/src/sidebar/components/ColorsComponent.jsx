@@ -4,14 +4,9 @@ import Input from '../../components/Input'
 const ColorComponents = ({ handleChange }) => {
   return (
     <div>
-      <h2 className='text-xl font-medium mb-5 '>Category</h2>
-      <div className='flex flex-col mb-3'>
-        <label className='sidebar-label-container gap-1 flex'>
-          <input onChange={handleChange} type="radio" value="" name="test3" />
-          <span className="checkmarks bg-gradient-to-b bg-red-600 from-blue-600  "></span>
-          <p className='!ml-[0.7rem] '>All</p>
-
-        </label>
+      <h2 className='text-xl font-medium mb-2 '>Category</h2>
+      <div className='flex flex-col mb-3 pl-4'>
+        
         <Input handleChange={handleChange} value="black" color="#000" name="test3" title="Black" />
         <label className='sidebar-label-container gap-1 flex'>
           <input

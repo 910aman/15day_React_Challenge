@@ -25,7 +25,7 @@ function App() {
   };
   return (
     <>
-      <div className='bg-green-100 py-4 px-10 container mx-auto h-screen flex flex-col justify-center'>
+      <div className='bg-[#333] py-4 px-10 container mx-auto h-full flex flex-col justify-center'>
 
         {loading ? <SkeletonData /> : <Pagination fetchData={fetchData} axiosData={data} />}
       </div>

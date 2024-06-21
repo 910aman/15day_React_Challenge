@@ -8,3 +8,61 @@
     border: 2px dotted "#9D75EC";
 
 }
+.sidebar-label-container {
+    font-weight: 500;
+    align-items: center;
+    position: relative;
+    padding-left: 0px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.sidebar-label-container p {
+    margin-left: 28px;
+}
+
+.sidebar-label-container:hover input ~ .checkmarks {
+    background-color: #9e9494;
+}
+
+.sidebar-label-container input:checked ~ .checkmarks {
+    background-color: #2196f3;
+}
+
+.sidebar-label-container input:checked ~ .checkmarks::after {
+    display: block;
+}
+
+
+.sidebar-label-container .checkmarks:after {
+    top: 6.4px;
+    left: 6.4px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  .line {
+    margin-top: 3rem;
+    border-color: #f7f7f7;
+  }
+  .checkmarks::after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+.checkmarks {
+    position: absolute;
+    top: 2;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+
+}
