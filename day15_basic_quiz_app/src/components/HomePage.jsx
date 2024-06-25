@@ -17,10 +17,9 @@ const HomePage = ({ Categories, setCategorySelect, categorySelect }) => {
 
     return (
         <div className='w-full flex h-fit py-10'>
-            <div className="w-[50%] flex flex-col justify-start  backdrop-blur-sm">
+            <div className="w-[50%] flex flex-col justify-start ">
                 <p className='text-center font-semibold text-stone-900 text-3xl'>Quiz Settings</p>
                 <div className='pt-10 flex flex-col gap-4 items-center '>
-
 
                     <select
                         type="text"

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { resultInitalState } from '../data/CategoryData';
 import AnswerTimer from '../components/answerTimer/AnswerTimer';
 import ResultComponent from '../components/ResultComponent';
-import Timer from '../components/timer/Timer';
 
 const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
 
@@ -27,8 +26,6 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
             setAnswer(false)
         }
     }
-
-
 
     console.log(result, showResult);
 
@@ -128,7 +125,7 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
     }
 
     return (
-        <div className=' max-w-3xl px-2 py-4 mt-20 w-full shadow-3xl border-2 bg-gradient-to-r from-[#ff7bb2] bg-[#5a8cee] text-blue-700 border-gray-300 flex flex-col gap-5 items-center '>
+        <div className=' max-w-3xl rounded-md px-2 py-4 my-20 w-full shadow-3xl border-2 bg-gradient-to-r from-[#ff7bb2] bg-[#5a8cee] text-blue-700 border-gray-300 flex flex-col gap-5 items-center '>
             {!showResult ? (
                 <>
                     <span className='flex-1 flex items-center text-xl py-2 text-white '>

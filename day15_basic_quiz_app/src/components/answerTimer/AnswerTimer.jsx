@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react'
-import Timer from '../timer/Timer';
 
 const AnswerTimer = ({ onTimeUp }) => {
 

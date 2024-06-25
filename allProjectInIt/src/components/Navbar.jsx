@@ -30,7 +30,7 @@ export default function Example() {
     return classes.filter(Boolean).join(' ')
   }
   return (
-    <Disclosure as="nav" className="bg-gray-800 ">
+    <Disclosure as="nav" className="bg-transparent backdrop-blur-[20px] shadow-navbarShadow border border-[#2E2E2E] ">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

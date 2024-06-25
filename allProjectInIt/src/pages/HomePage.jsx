@@ -1,5 +1,5 @@
 import React from 'react'
-import HeroPage from '../components/HeroPage'
+import HeroPage from '../components/HeroComponent'
 
 
 const HomePage = () => {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, setResultName, handleSave, showScore, highScore }) => {
-  console.log(result);
+  console.log(showScore);
   return (
     <>
       <section className='h-fit text-center max-w-3xl px-2 w-full shadow-3xl cursor-pointer py-3 text-blue-700 flex gap-16 '>
@@ -22,7 +22,7 @@ const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, se
           <p className='font-bold text-lg'>
             Wrong Answers: <span className='text-xl italic'>{result.incorrectAnswers}</span>
           </p>
-          <Link to={"/"} className='px-4 py-2 rounded-md text-white bg-gradient-to-tl from-blue-800 via-50% to-slate-400 hover:border-2 border-blue-800 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none font-bold text-xl ' onClick={handleTryAgain}>Try again</Link>
+          {!showScore == false  && <Link to={"/"} className='px-4 py-2 rounded-md text-white bg-gradient-to-tl from-blue-800 via-50% to-slate-400 hover:border-2 border-blue-800 transition transform hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none font-bold text-xl ' onClick={handleTryAgain}>Try again</Link>}
         </div>
         {!showScore ? <div>
           <h3 className='text-xl font-semibold mb-2'>Enter your name below <br /> to save your score</h3>
@@ -38,13 +38,16 @@ const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, se
                 <tr className=''>
                   <th className=''>Ranking</th>
                   <th className=''>Name</th>
-                  <th className=''>Results</th>
+                  <th className='px-2'>Results</th>
                 </tr>
                 {highScore.map((score, i) => (
                   <tr>
                     <td className=''>{i + 1}</td>
                     <td className=''>{score.name}</td>
-                    <td className=''>{score.score}</td>
+                    <td className='!flex items-center justify-center'>
+                      <h4 className='font-medium text-lg'>{score.score}</h4>
+                      <h2 className='font-medium text-base' >/50</h2>
+                    </td>
                   </tr>
                 ))}
               </tbody>

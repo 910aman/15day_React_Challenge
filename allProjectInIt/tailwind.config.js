@@ -12,6 +12,10 @@ export default {
       backgroundImage : {
         'heroImg': "url('./assets/bgImage.jpg')",
         // "3d_bgImage":"url('./assest/3dImage.jpg')"
+      },
+      boxShadow: {
+        'navbarShadow': '0 0px 30px 30px rgb(78, 119, 215)',
+        
       }
     },
   },
