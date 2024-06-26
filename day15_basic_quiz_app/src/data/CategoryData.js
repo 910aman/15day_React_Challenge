@@ -5,7 +5,7 @@ export const resultInitalState = {
 };
 
 export const Categories = [
-    {category:"Select any one"},
+    { category: "Select any one" },
     { category: "Science: Computers" },
     { category: "Celebrities" },
     { category: "Science: Mathematics" }
@@ -13,9 +13,8 @@ export const Categories = [
 
 
 export const QuizData = [
-
     {
-        
+
         "category": "Science: Computers",
         "question": "The programming language &#039;Swift&#039; was created to replace what other programming language?",
         "correct_answer": "Objective-C",
@@ -26,7 +25,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "In computing, what does LAN stand for?",
         "correct_answer": "Local Area Network",
@@ -37,7 +36,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "In web design, what does CSS stand for?",
         "correct_answer": "Cascading Style Sheet",
@@ -48,7 +47,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "What does GHz stand for?",
         "correct_answer": "Gigahertz",
@@ -59,7 +58,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "What is the code name for the mobile operating system Android 7.0?",
         "correct_answer": "Nougat",
@@ -70,7 +69,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "Which programming language shares its name with an island in Indonesia?",
         "correct_answer": "Java",
@@ -81,7 +80,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "What does the &quot;MP&quot; stand for in MP3?",
         "correct_answer": "Moving Picture",
@@ -92,7 +91,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "How many kilobytes in one gigabyte (in decimal)?",
         "correct_answer": "1000000",
@@ -103,7 +102,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
         "correct_answer": "Green",
@@ -114,7 +113,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Science: Computers",
         "question": "Which computer hardware device provides an interface for all other connected devices to communicate?",
         "correct_answer": "Motherboard",
@@ -125,19 +124,19 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "What does film maker Dan Bell typically focus his films on?",
         "correct_answer": "Abandoned Buildings and Dead Malls",
         "incorrect_answers": [
-            "Abandoned Buildings and Dead Malls", 
+            "Abandoned Buildings and Dead Malls",
             "Historic Landmarks",
             "Action Films",
             "Documentaries "
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "Named after a character he played in a 1969 film, what is the name of the ski resort in Utah that Robert Redford bought in 1968?",
         "correct_answer": "Sundance",
@@ -148,7 +147,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "What was James Coburn&#039;s last film role before his death?",
         "correct_answer": "American Gun",
@@ -159,7 +158,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "What was the cause of Marilyn Monroes suicide?",
         "correct_answer": "Drug Overdose",
@@ -170,7 +169,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "Which actress married Michael Douglas in 2000?",
         "correct_answer": "Catherine Zeta-Jones",
@@ -181,7 +180,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "By which name is Ramon Estevez better known as?",
         "correct_answer": "Martin Sheen",
@@ -193,7 +192,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "By what name is Carlos Estevez better known? ",
         "correct_answer": "Charlie Sheen",
@@ -204,7 +203,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "Neil Hamburger is played by which comedian?",
         "correct_answer": "Gregg Turkington",
@@ -215,7 +214,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "Gwyneth Paltrow has a daughter named...?",
         "correct_answer": "Apple",
@@ -226,7 +225,7 @@ export const QuizData = [
         ]
     },
     {
-        
+
         "category": "Celebrities",
         "question": "Which celebrity announced his presidency in 2015?",
         "correct_answer": "Kanye West",
@@ -237,7 +236,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "What is the area of a circle with a diameter of 20 inches if &pi;= 3.1415?",
         "correct_answer": "314.15 Inches",
@@ -249,7 +248,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "What is the Roman numeral for 500?",
         "correct_answer": "D",
@@ -261,7 +260,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "How many zeros are there in a googol?",
         "correct_answer": "100",
@@ -273,7 +272,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "What is the alphanumeric representation of the imaginary number?",
         "correct_answer": "i",
@@ -285,7 +284,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "To the nearest whole number, how many radians are in a whole circle?",
         "correct_answer": "6",
@@ -297,7 +296,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "How many books are in Euclid&#039;s Elements of Geometry?",
         "correct_answer": "13",
@@ -309,7 +308,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "In the hexadecimal system, what number comes after 9?",
         "correct_answer": "The Letter A",
@@ -321,7 +320,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "What are the first 6 digits of the number &quot;Pi&quot;?",
         "correct_answer": "3.14159",
@@ -333,7 +332,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "What Greek letter is used to signify summation?",
         "correct_answer": "Sigma",
@@ -345,7 +344,7 @@ export const QuizData = [
         ]
     },
     {
-      
+
         "category": "Science: Mathematics",
         "question": "What type of function is x&sup2;+2x+1?",
         "correct_answer": "Quadratic",

@@ -10,10 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.4",
     "axios": "^1.7.2",
+    "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-pdf": "^9.0.0",
     "react-router-dom": "^6.23.1",
+    "react-to-print": "^2.15.1",
     "sass": "^1.77.5"
   },
   "devDependencies": {

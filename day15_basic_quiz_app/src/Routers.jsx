@@ -1,11 +1,11 @@
 
 
+import "./App.css"
 import QuizPage from './pages/QuizPage';
 import { QuizData, Categories } from './data/CategoryData';
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
-import "./App.css"
-import HomePage from './components/HomePage';
+import HomePage from './pages/HomePage';
 
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 

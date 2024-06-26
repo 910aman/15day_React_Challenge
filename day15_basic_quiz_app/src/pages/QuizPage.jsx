@@ -3,6 +3,7 @@ import { resultInitalState } from '../data/CategoryData';
 import AnswerTimer from '../components/answerTimer/AnswerTimer';
 import ResultComponent from '../components/ResultComponent';
 
+
 const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
 
     const [answerIdx, setAnswerIdx] = useState(null);
@@ -15,6 +16,8 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
     const [highScore, setHighScore] = useState([])
     const [showScore, setShowScore] = useState(false)
     const [resultName, setResultName] = useState();
+
+
 
     const { incorrect_answers, category, question, correct_answer, type } = filteredItems[currentQuestion];
     const onAnswerClick = (answer, index) => {
@@ -74,7 +77,6 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
         else {
             setAnswer(false);
         }
-
     }
 
     const handleSave = () => {
@@ -84,14 +86,20 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
             score: result.score,
         };
 
-        if (!score.name) {
-            return;
+        if (score.length >= 3) {
+            setHighScore([])
+            localStorage.setItem('highScore', JSON.stringify([]))
         } else {
-            const newHighScores = [...highScore, score].sort((a, b) => b.score - a.score);
-            setHighScore(newHighScores)
-            setShowScore(true);
-            localStorage.setItem('highScore', JSON.stringify(newHighScores))
+            if (!score.name) {
+                return;
+            } else {
+                const newHighScores = [...highScore, score].sort((a, b) => b.score - a.score);
+                setHighScore(newHighScores)
+                setShowScore(true);
+                localStorage.setItem('highScore', JSON.stringify(newHighScores))
+            }
         }
+        console.log("Score of Player",score.length);
     }
 
     const handleTryAgain = () => {
@@ -136,7 +144,7 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
                     <div className='h-fit px-5 flex flex-col gap-4 '>
 
                         <div className='flex justify-end w-full'>
-                        {showAnswerTimer && (<AnswerTimer duration={60} onTimeUp={onHandleTimerUp} />)}
+                            {showAnswerTimer && (<AnswerTimer duration={60} onTimeUp={onHandleTimerUp} />)}
 
                             <div className='flex flex-1 justify-end flex-row items-center'>
                                 <span className='text-3xl font-bold text-gray-800'>
