@@ -22,10 +22,11 @@ const HomePage = ({ Categories, setCategorySelect, categorySelect }) => {
     // }
 
     return (
-        <div className='w-full flex h-[650px] py-10'>
+        <div className='w-full flex h-[650px] py-14 '>
             <div className="w-[50%] flex flex-col justify-center items-center h-full ">
                 <p className='text-center font-semibold text-stone-900 text-3xl'>Quiz WebApp</p>
                 <div className='pt-10 flex flex-col gap-4 items-center '>
+                    
                     <select
                         type="text"
                         name="category"

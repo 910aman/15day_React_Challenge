@@ -19,7 +19,8 @@ export const QuizData = [
         "question": "The programming language &#039;Swift&#039; was created to replace what other programming language?",
         "correct_answer": "Objective-C",
         "incorrect_answers": [
-            "Objective-C", "C#",
+            "Objective-C",
+             "C#",
             "Ruby",
             "C++"
         ]

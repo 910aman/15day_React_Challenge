@@ -17,20 +17,16 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
     const [showScore, setShowScore] = useState(false)
     const [resultName, setResultName] = useState();
 
-
-
     const { incorrect_answers, category, question, correct_answer, type } = filteredItems[currentQuestion];
-    const onAnswerClick = (answer, index) => {
+    const onAnswerClick = (ans, index) => {
         setAnswerIdx(index);
-        if (answer === correct_answer) {
+        if (ans === correct_answer) {
             setAnswer(true)
         }
         else {
             setAnswer(false)
         }
     }
-
-    console.log(result, showResult);
 
     const onClickNext = (finalAnswer) => {
         setShowAnswerTimer(false)
@@ -78,17 +74,15 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
             setAnswer(false);
         }
     }
+    const score = {
+        name: resultName,
+        score: result.score,
+    };
 
     const handleSave = () => {
-
-        const score = {
-            name: resultName,
-            score: result.score,
-        };
-
         if (score.length >= 3) {
-            setHighScore([])
-            localStorage.setItem('highScore', JSON.stringify([]))
+            setHighScore(localStorage.setItem('highScore', JSON.stringify([])))
+            
         } else {
             if (!score.name) {
                 return;
@@ -99,7 +93,6 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
                 localStorage.setItem('highScore', JSON.stringify(newHighScores))
             }
         }
-        console.log("Score of Player",score.length);
     }
 
     const handleTryAgain = () => {
@@ -107,13 +100,13 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
         onTryAgain();
         setInputAnswer("")
         setResultName("")
-
     }
 
     useEffect(() => {
         setHighScore(JSON.parse(localStorage.getItem("highScore")) || [])
     }, [])
 
+    
 
     const getAnswerUI = () => {
         if (type === "FIB") {
@@ -172,7 +165,7 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
             ) :
                 (
                     <section className='h-fit text-center max-w-3xl px-2 w-full shadow-3xl cursor-pointer py-3 text-blue-700 flex flex-col gap-5 items-center '>
-                        <ResultComponent filteredItems={filteredItems} result={result} handleTryAgain={handleTryAgain} showScore={showScore} resultName={resultName} setResultName={setResultName} handleSave={handleSave} highScore={highScore} />
+                        <ResultComponent category={category} filteredItems={filteredItems} result={result} handleTryAgain={handleTryAgain} showScore={showScore} resultName={resultName} setResultName={setResultName} handleSave={handleSave} score={score} highScore={highScore} />
                     </section>
                 )
             }

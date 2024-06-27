@@ -2,7 +2,8 @@
 
 import "./App.css"
 import QuizPage from './pages/QuizPage';
-import { QuizData, Categories } from './data/CategoryData';
+import { QuizData, Categories } from './data/CategoryData';  
+import { MyDemoQuiz } from './data/DemoData';  
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
@@ -19,10 +20,10 @@ function App() {
 
   useEffect(() => {
     if (categorySelect !== "") {
-      const filteredData = QuizData.filter(data => data.category === categorySelect);
+      const filteredData = MyDemoQuiz.filter(data => data.category === categorySelect);
       setFilteredItems(filteredData);
     } else {
-      setFilteredItems(QuizData);
+      setFilteredItems(MyDemoQuiz);
     }
   }, [categorySelect]);
 
@@ -34,7 +35,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Outlet />} >
               <Route path='/' element={<HomePage Categories={Categories} setCategorySelect={setCategorySelect} categorySelect={categorySelect} />} />
-              <Route path='/quiz' element={<QuizPage filteredItems={filteredItems} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} />} />
+              <Route path='/quiz' element={<QuizPage filteredItems={filteredItems} currentQuestion={currentQuestion} setCurrentQuestion={setCurrentQuestion} category={categorySelect} />} />
             </Route>
           </Routes>
         </div>
