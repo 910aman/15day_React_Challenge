@@ -36,7 +36,7 @@ const HomePage = ({ Categories, setCategorySelect, categorySelect }) => {
                         value={categorySelect}
                         onChange={(e) => setCategorySelect(e.target.value)} >
                         {Categories.map((data, index) => (
-                            <option key={index} value={data.category} className={` text-white py-3 hover:bg-[#6d5858] bg-gray-500`} >
+                            <option key={index} value={data.val} className={` text-white py-3 hover:bg-[#6d5858] bg-gray-500`} >
                                 {data.category}
                             </option>
                         ))}

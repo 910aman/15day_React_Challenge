@@ -4,13 +4,16 @@ import ReacttoPdf from './pdf-convert/React-to-pdf';
 import { PDFDownloadLink } from '@react-pdf/renderer';
 
 
-const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, setResultName, handleSave, score, showScore, highScore, category }) => {
+const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, setResultName, handleSave, score, showScore, highScore, category, setHighScore }) => {
 
+  const EmptyList = () => {
+    setHighScore(JSON.parse(localStorage.setItem("highScore",[])))
+  }
   return (
     <>
       <section className='h-fit text-center max-w-3xl px-2 w-full shadow-3xl cursor-pointer py-3 text-blue-700 flex gap-16 '>
-        <div className='flex flex-col gap-5 items-center '>
-          <h3 className='font-bold text-2xl'>
+        <div className='flex flex-col gap-5 items-start '>
+          <h3 className='font-bold text-2xl w-full text-center'>
             Result
           </h3>
           <p className='font-bold text-lg'>
@@ -44,15 +47,15 @@ const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, se
             <button className='px-4 py-2.5 rounded-r-lg text-white bg-black' onClick={handleSave}>Submit</button>
           </div>
         </div> :
-          <div>
-            <table table className="table-auto rwd-table">
-              <tr className=''>
+          <div className='flex gap-4'>
+            <table table className="table-auto rwd-table ">
+              <tr className='h-fit'>
                 <th className=''>Ranking</th>
                 <th className=''>Name</th>
                 <th className='px-2'>Results</th>
               </tr>
               {highScore.map((score, i) => (
-                <tr key={i}>
+                <tr key={i} className='h-fit'>
                   <td className=''>{i + 1}</td>
                   <td className=''>{score.name}</td>
                   <td className='!flex items-center justify-center'>
@@ -62,6 +65,11 @@ const ResultComponent = ({ filteredItems, result, handleTryAgain, resultName, se
                 </tr>
               ))}
             </table>
+            {/* <div className='flex'>
+              <button className='flex px-4 py-3 bg-orange-500 h-fit'  onClick={() => EmptyList()}>
+                Clear All
+              </button>
+            </div> */}
           </div>}
       </section >
     </>

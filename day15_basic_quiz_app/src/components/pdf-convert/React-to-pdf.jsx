@@ -1,8 +1,6 @@
 import { Document, Line, Page, StyleSheet, Svg, Text } from '@react-pdf/renderer';
-import React, { useEffect, useState } from 'react'
-// import { MyDemoQuiz } from '../../data/DemoData';
-// import { QuizData } from '../../data/CategoryData';
-
+import React from 'react'
+import { IoIosRadioButtonOff, IoIosRadioButtonOn } from 'react-icons/io';
 
 const styles = StyleSheet.create({
     body: {
@@ -14,7 +12,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: "#000819",
         paddingBottom: 5,
-        paddingTop: 10,
+        paddingTop: 20,
     },
     answer: {
         marginTop: 4,
@@ -29,22 +27,22 @@ const styles = StyleSheet.create({
         marginTop: 4,
         fontSize: 20,
         padding: 5,
-        backgroundColor: "#021C56",
-        color: "white",
+        backgroundColor: "#46F365",
+        color: "black",
         borderRadius: 10,
         paddingLeft: 10
     },
     header: {
-        fontSize: 12,
+        fontSize: 20,
         marginBottom: 10,
         textAlign: "center",
-        color: "grey",
+        color: "black",
     },
     userData: {
         fontSize: 12,
         marginBottom: 2,
         textAlign: "start",
-        color: "grey",
+        color: "black",
     },
     pageNumber: {
         position: "absolute",
@@ -59,9 +57,7 @@ const styles = StyleSheet.create({
 
 const Pdf_Convert = ({ category, items, result, score }) => {
 
-    const [quizData, setQuizData] = useState()
-    const [quesLength, setQuesLength] = useState()
-    const QuizData = [
+    const TempData = [
         {
 
             category: "Science: Computers",
@@ -84,26 +80,7 @@ const Pdf_Convert = ({ category, items, result, score }) => {
                 "Local Area Network", "Land Address Navigation"
             ]
         }]
-    const [categoryFilter, setCategoryFilter] = useState()
-    const [answer, setAnswer] = useState([])
 
-    // const SetAnswer = () => {
-    //     const getCorrectAnswer = QuizData.map((ans) => ans.incorrect_answers === answer);
-    //     setCategoryFilter(getCorrectAnswer);
-    // }
-
-    const filterByAnswer = () => {
-        const filteredQuestion = QuizData.filter((question) => {
-            return question.incorrect_answers.includes(answer);
-        });
-        setCategoryFilter(filteredQuestion);
-        console.log("Data is Coming", categoryFilter,filteredQuestion);
-    };
-
-
-    useEffect(() => {
-        filterByAnswer();
-    }, [answer])
 
     return (
         <Document>
@@ -147,9 +124,17 @@ const Pdf_Convert = ({ category, items, result, score }) => {
                         <Text style={styles.question}>
                             {index + 1}.&nbsp;{quiz.question}
                         </Text>
-                        {quiz.incorrect_answers.map((answer, ans) =>
-                            <Text style={styles.answer} key={ans}>
-                                {answer}
+                        {quiz.incorrect_answers.map((answer, ansIndex) =>
+                            <Text style={answer === quiz.correct_answer ? styles.correctAnswer : styles.answer}
+                                key={ansIndex}>
+                                {answer === quiz.correct_answer ?
+                                    <div className='w-5 h-5 text-white'>
+                                        <IoIosRadioButtonOn className='w-full h-full' />
+                                    </div> :
+                                    <div className='w-5 h-5 text-black'>
+                                        <IoIosRadioButtonOff className='w-full h-full'/>
+                                    </div>
+                                } {answer}
                             </Text>
                         )}
                     </section>

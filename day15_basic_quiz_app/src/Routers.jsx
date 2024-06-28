@@ -3,7 +3,6 @@
 import "./App.css"
 import QuizPage from './pages/QuizPage';
 import { QuizData, Categories } from './data/CategoryData';  
-import { MyDemoQuiz } from './data/DemoData';  
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import HomePage from './pages/HomePage';
@@ -20,10 +19,10 @@ function App() {
 
   useEffect(() => {
     if (categorySelect !== "") {
-      const filteredData = MyDemoQuiz.filter(data => data.category === categorySelect);
+      const filteredData = QuizData.filter(data => data.category === categorySelect);
       setFilteredItems(filteredData);
     } else {
-      setFilteredItems(MyDemoQuiz);
+      setFilteredItems(QuizData);
     }
   }, [categorySelect]);
 

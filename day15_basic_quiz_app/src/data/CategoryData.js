@@ -5,22 +5,21 @@ export const resultInitalState = {
 };
 
 export const Categories = [
-    { category: "Select any one" },
-    { category: "Science: Computers" },
-    { category: "Celebrities" },
-    { category: "Science: Mathematics" }
+    { category: "Select any one", val: "" },
+    { category: "Science: Computers", val: "Science: Computers" },
+    { category: "Celebrities", val: "Celebrities" },
+    { category: "Science: Mathematics", val: "Science: Mathematics" }
 ]
 
 
 export const QuizData = [
     {
-
         "category": "Science: Computers",
         "question": "The programming language &#039;Swift&#039; was created to replace what other programming language?",
         "correct_answer": "Objective-C",
         "incorrect_answers": [
             "Objective-C",
-             "C#",
+            "C#",
             "Ruby",
             "C++"
         ]
