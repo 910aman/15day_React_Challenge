@@ -22,6 +22,7 @@ const QuizPage = ({ currentQuestion, setCurrentQuestion, filteredItems }) => {
 
     const onAnswerClick = (ans, index) => {
         setAnswerIdx(index);
+        
         if (ans === correct_answer) {
             setAnswer(true);
         }
